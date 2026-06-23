@@ -1,0 +1,44 @@
+# Arquivos internos de trabalho (uso da equipe, não versionar)
+requisitos.txt
+plano_execucao.md
+Projetobd.pdf
+
+# Dados brutos (muito grandes para o repo)
+data/raw/
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+.ipynb_checkpoints/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# PostgreSQL dumps temporários
+*.dump
+*.bak
+
+# Outputs grandes / temporários
+*.tmp

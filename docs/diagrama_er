@@ -1,0 +1,22 @@
+digraph ER {
+	bgcolor=white fontname=Helvetica rankdir=LR
+	node [fillcolor="#dbeafe" fontname=Helvetica fontsize=11 shape=box style="filled,rounded"]
+	edge [fontname=Helvetica fontsize=10]
+	orgao_superior [label="ORGAO_SUPERIOR\ncodigo (PK), nome"]
+	orgao_subordinado [label="ORGAO_SUBORDINADO\ncodigo (PK), nome\ncodigo_orgao_superior (FK)"]
+	unidade_gestora [label="UNIDADE_GESTORA\ncodigo (PK), nome\ncodigo_orgao_subordinado (FK)"]
+	portador [label="PORTADOR\ncpf (PK), nome"]
+	favorecido [label="FAVORECIDO\ncpf_cnpj (PK), nome, tipo"]
+	pessoa_fisica [label="PESSOA_FISICA\ncpf_cnpj (PK,FK)" fillcolor="#fee2e2"]
+	pessoa_juridica [label="PESSOA_JURIDICA\ncpf_cnpj (PK,FK)" fillcolor="#fee2e2"]
+	tipo_transacao [label="TIPO_TRANSACAO\ncodigo (PK), descricao"]
+	transacao [label="TRANSACAO\nid (PK), data, valor\nano/mes_extrato\n+ 4 FKs" fillcolor="#fef3c7"]
+	orgao_superior -> orgao_subordinado [label="1 — supervisiona — N"]
+	orgao_subordinado -> unidade_gestora [label="1 — possui — N"]
+	unidade_gestora -> transacao [label="1 — registra — N"]
+	portador -> transacao [label="1 — realiza — N"]
+	favorecido -> transacao [label="1 — recebe — N"]
+	tipo_transacao -> transacao [label="1 — classifica — N"]
+	favorecido -> pessoa_fisica [label="(EER: PF)" style=dashed]
+	favorecido -> pessoa_juridica [label="(EER: PJ)" style=dashed]
+}
